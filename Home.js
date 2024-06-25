@@ -1,8 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity, FlatList}from 'react-native';
+import TransactionCard from './transactionsCard';
 
 
 export default function Home( ){
+
+    const transactionList =[
+        {id: 1, icon: require('./assets/apple.png'), title: 'Apple store',field: 'Entertainment',price: '-$5.99' },
+        {id: 2, icon: require('./assets/spotify.png'), title: 'Spotify', field: 'Music', price: '-$12.99'},
+        {id: 3, icon: require('./assets/moneyTransfer.png'), title: 'Money Transfer', field: 'Transaction', price: '$1999'},
+        {id: 4, icon: require('./assets/grocery.png'), title: 'Grocery', field: 'butter', price: '-$12.99'},
+    ];
 
     return(
         <View style={styles.container}>
@@ -23,7 +31,7 @@ export default function Home( ){
                             </Text>
 
                             <Text style={styles.profileName}>
-                            Eric Atsu
+                                Eric Atsu
                             </Text>
 
                         </View>
@@ -83,12 +91,20 @@ export default function Home( ){
                     </Text>
 
                     <TouchableOpacity>
-                        <Text>
+                        <Text style= { styles.see}>
                             See all
                         </Text>
 
                     </TouchableOpacity>
                 </View>
+
+                <FlatList
+                    data= {transactionList}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({ item }) => <TransactionCard item={item} />}
+                    keyExtractor={item => item.id}
+                />
+
 
             </View>
         </View>
@@ -166,7 +182,23 @@ const styles = StyleSheet.create({
 
   recieve: {
     top: 3
-  }
+  },
+
+  trans: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent:'space-between'
+  },
+
+  transaction: {
+    fontSize: 20,
+    fontWeight: '500'
+  },
+
+  see: {
+    color: '#191970',
+     fontWeight: '500'
+  },
 
 
 
