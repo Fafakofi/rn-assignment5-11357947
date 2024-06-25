@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity} from 'react-native';
 
 
 export default function Home( ){
@@ -38,6 +38,58 @@ export default function Home( ){
 
                 </View>
 
+                <View style={styles.masterCard}>
+                    <Image source={require('./assets/Card.png')} style={styles.masterCardImg} />
+                </View>
+
+                <View style={styles.actions}>
+
+                    <View style={styles.action}>
+                        <Image source={require('./assets/send.png')} />
+                        <Text style={styles.sent}>
+                            Sent
+                        </Text>
+
+                    </View>
+
+                    <View style={styles.action}>
+                        <Image source={require('./assets/recieve.png')}/>
+                        <Text style={styles.recieve}>
+                            Recieve
+                        </Text>
+
+                    </View>
+
+                    <View style={styles.action}>
+                        <Image source={require('./assets/loan.png')} />
+                        <Text style={styles.loan}>
+                            Loan
+                        </Text>
+
+                    </View>
+
+                    <View style={styles.action}>
+                        <Image source={require('./assets/topUp.png')}/>
+                        <Text style={styles.topUp}>
+                            Topup
+                        </Text>
+
+                    </View>
+                </View>
+
+                <View style={styles.trans}>
+                    <Text style={styles.transaction}>
+                        Transaction
+                    </Text>
+
+                    <TouchableOpacity>
+                        <Text>
+                            See all
+                        </Text>
+
+                    </TouchableOpacity>
+                </View>
+
             </View>
         </View>
     )
@@ -61,7 +113,8 @@ const styles = StyleSheet.create({
   userProfile: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent:'space-between'
+    justifyContent:'space-between',
+    marginBottom: 30
   },
 
   profileStuff: {
@@ -90,7 +143,36 @@ const styles = StyleSheet.create({
   touch: {
     top: 8,
     left: 6
+  },
+
+  masterCard:{
+    marginBottom: 20
+  },
+
+  masterCardImg: {
+    width: '100%'
+  },
+
+  actions: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent:'space-between',
+    marginBottom: 30
+  },
+
+  sent: {
+    top: 4
+  },
+
+  recieve: {
+    top: 3
   }
+
+
+
+ 
+
+
 
   
 
