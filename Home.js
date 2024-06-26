@@ -6,10 +6,10 @@ import TransactionCard from './transactionsCard';
 export default function Home( ){
 
     const transactionList =[
-        {id: 1, icon: require('./assets/apple.png'), title: 'Apple store',field: 'Entertainment',price: '-$5.99' },
-        {id: 2, icon: require('./assets/spotify.png'), title: 'Spotify', field: 'Music', price: '-$12.99'},
-        {id: 3, icon: require('./assets/moneyTransfer.png'), title: 'Money Transfer', field: 'Transaction', price: '$1999'},
-        {id: 4, icon: require('./assets/grocery.png'), title: 'Grocery', field: 'butter', price: '-$12.99'},
+        {id: '1', icon: require('./assets/apple.png'), title: 'Apple store',field: 'Entertainment',price: '-$5.99' },
+        {id: '2', icon: require('./assets/spotify.png'), title: 'Spotify', field: 'Music', price: '-$12.99'},
+        {id: '3', icon: require('./assets/moneyTransfer.png'), title: 'Money Transfer', field: 'Transaction', price: '$1999'},
+        {id: '4', icon: require('./assets/grocery.png'), title: 'Grocery', field: 'butter', price: '-$12.99'},
     ];
 
     return(
