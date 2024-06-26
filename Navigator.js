@@ -3,14 +3,44 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './Home';
 import Settings from './Settings';
+import { Image } from 'react-native';
+import Statistics from './Statistics';
+import myCards from './MyCard';
+
 
 const Tab = createBottomTabNavigator();
+
+const HomeIcon = require('./assets/home.png');
+const SettingsIcon = require('./assets/settings.png');
+const CardsIcon = require('./assets/myCards.png');
+const StatisticsIcon = require('./assets/statictics.png');
+
 
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+             screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                  let iconName;
+      
+                  if (route.name === 'Home') {
+                    return <Image source={HomeIcon} style={{ width: size, height: size, tintColor: color }} />;
+                  } else if (route.name === 'Settings') {
+                    return <Image source={SettingsIcon} style={{ width: size, height: size, tintColor: color }} />;
+                  } else if (route.name === 'Cards') {
+                    return <Image source={CardsIcon} style={{ width: size, height: size, tintColor: color }} />;
+                  } else if (route.name === 'Statistics') {
+                    return <Image source={StatisticsIcon} style={{ width: size, height: size, tintColor: color }} />;
+                  }
+                },
+                tabBarActiveTintColor: 'blue',
+                tabBarInactiveTintColor: 'gray',
+            })}
+      >
         <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="mycards" component={Settings} />
+        <Tab.Screen name="statistics" component={Settings} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
