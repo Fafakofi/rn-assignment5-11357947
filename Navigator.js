@@ -5,7 +5,7 @@ import Home from './Home';
 import Settings from './Settings';
 import { Image } from 'react-native';
 import Statistics from './Statistics';
-import myCards from './MyCard';
+import MyCards from './MyCard';
 
 
 const Tab = createBottomTabNavigator();
@@ -39,8 +39,8 @@ const Navigator = () => {
             })}
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="mycards" component={Settings} />
-        <Tab.Screen name="statistics" component={Settings} />
+        <Tab.Screen name="Cards" component={MyCards} />
+        <Tab.Screen name="Statistics" component={ Statistics} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
