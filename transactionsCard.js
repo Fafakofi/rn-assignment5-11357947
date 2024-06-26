@@ -1,7 +1,9 @@
-import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
 
 const TransactionCard = ({ item }) => {
+    const { theme } = useContext(ThemeContext);
     return(   
          <View style={styles.card}>
 
@@ -11,10 +13,10 @@ const TransactionCard = ({ item }) => {
                 </View>
 
                 <View>
-                    <Text style={styles.title}>
+                    <Text style={[styles.title, { color: theme.textColor }]}>
                         {item.title}
                     </Text>
-                    <Text style={styles.field}>
+                    <Text style={[styles.field, { color: theme.textColor }]}>
                         {item.field}
                     </Text>
 
@@ -22,7 +24,7 @@ const TransactionCard = ({ item }) => {
             </View>
 
             <View>
-                <Text>
+                <Text style={[styles.price, { color: theme.textColor }]}>
                     {item.price}
                 </Text>
             </View>
@@ -61,6 +63,11 @@ const styles = StyleSheet.create({
       field: {
         fontSize: 10,
         fontWeight: '300'
+      },
+
+
+      price: {
+        color: 'black'
       }
 });
 

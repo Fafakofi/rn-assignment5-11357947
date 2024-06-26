@@ -8,6 +8,7 @@ import Statistics from './Statistics';
 import MyCards from './MyCard';
 
 
+
 const Tab = createBottomTabNavigator();
 
 const HomeIcon = require('./assets/home.png');
@@ -17,6 +18,7 @@ const StatisticsIcon = require('./assets/statictics.png');
 
 
 const Navigator = () => {
+
   return (
     <NavigationContainer>
       <Tab.Navigator

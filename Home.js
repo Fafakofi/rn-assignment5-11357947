@@ -1,6 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity, FlatList}from 'react-native';
 import TransactionCard from './transactionsCard';
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
 
 
 export default function Home( ){
@@ -12,9 +15,11 @@ export default function Home( ){
         {id: '4', icon: require('./assets/grocery.png'), title: 'Grocery', field: 'butter', price: '-$12.99'},
     ];
 
+    const { theme } = useContext(ThemeContext);
+
     return(
-        <View style={styles.container}>
-            <View  style={styles.container1}>
+        <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
+            <View  style={[styles.container1, { backgroundColor: theme.backgroundColor }]}>
 
                 <View style={styles.userProfile}>
                     <View style={styles.profileStuff}>
@@ -26,11 +31,11 @@ export default function Home( ){
     
                         <View style={styles.profileText}>
 
-                            <Text style={styles.profileGreet}>
+                            <Text style={[styles.profileGreet, { color: theme.textColor }]}>
                                 Welcome back,
                             </Text>
 
-                            <Text style={styles.profileName}>
+                            <Text style={[styles.profileName, { color: theme.textColor }]}>
                                 Eric Atsu
                             </Text>
 
@@ -54,7 +59,7 @@ export default function Home( ){
 
                     <View style={styles.action}>
                         <Image source={require('./assets/send.png')} />
-                        <Text style={styles.sent}>
+                        <Text style={[styles.sent, { color: theme.textColor }]}>
                             Sent
                         </Text>
 
@@ -62,7 +67,7 @@ export default function Home( ){
 
                     <View style={styles.action}>
                         <Image source={require('./assets/recieve.png')}/>
-                        <Text style={styles.recieve}>
+                        <Text style={[styles.recieve, { color: theme.textColor }]}>
                             Recieve
                         </Text>
 
@@ -70,7 +75,7 @@ export default function Home( ){
 
                     <View style={styles.action}>
                         <Image source={require('./assets/loan.png')} />
-                        <Text style={styles.loan}>
+                        <Text style={[styles.loan, { color: theme.textColor }]}>
                             Loan
                         </Text>
 
@@ -78,7 +83,7 @@ export default function Home( ){
 
                     <View style={styles.action}>
                         <Image source={require('./assets/topUp.png')}/>
-                        <Text style={styles.topUp}>
+                        <Text style={[styles.topUp, { color: theme.textColor }]}>
                             Topup
                         </Text>
 
@@ -86,7 +91,7 @@ export default function Home( ){
                 </View>
 
                 <View style={styles.trans}>
-                    <Text style={styles.transaction}>
+                    <Text style={[styles.transaction, { color: theme.textColor }]}>
                         Transaction
                     </Text>
 
@@ -187,7 +192,8 @@ const styles = StyleSheet.create({
   trans: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent:'space-between'
+    justifyContent:'space-between',
+    marginBottom: 20,
   },
 
   transaction: {

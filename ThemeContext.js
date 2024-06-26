@@ -2,6 +2,19 @@ import React, { createContext, useState } from 'react';
 
 export const ThemeContext = createContext();
 
+export const themes = {
+  light: {
+    background: '#fff',
+    text: '#000',
+    icon: '#000',
+  },
+  dark: {
+    background: '#000435',
+    text: '#fff',
+    icon: '#fff',
+  },
+};
+
 export const ThemeProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -10,7 +23,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   const theme = {
-    backgroundColor: isDarkTheme ? '#333' : '#fff',
+    backgroundColor: isDarkTheme ? '#0D0D0D' : '#fff',
     textColor: isDarkTheme ? '#fff' : '#000',
   };
 
