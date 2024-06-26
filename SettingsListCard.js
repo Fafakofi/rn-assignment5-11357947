@@ -1,14 +1,17 @@
-import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { ThemeContext } from './ThemeContext';
+import React, { useContext } from 'react';
 
 const SettingsListCard = ({ item }) => {
+    const { theme } = useContext(ThemeContext);
+
     return(
         <View style={styles.settings}>
 
             <View style={styles.settings1}>
 
-                <Text style={styles.preference}>
+                <Text style={[styles.preference, { color: theme.textColor }]}>
                     {item.preference}
                 </Text>
 

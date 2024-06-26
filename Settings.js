@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, FlatList, Switch }from 'react-native';
 import SettingsListCard from './SettingsListCard';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
 
 export default function Settings(){
     const settingsList = [
@@ -11,14 +12,15 @@ export default function Settings(){
         {id: '5', preference: 'Privacy Policy'}
     ];
 
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    // const [isEnabled, setIsEnabled] = useState(false);
+    // const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
+    const { theme, toggleTheme, isDarkTheme } = useContext(ThemeContext);
 
 
     return(
-        <View style={styles.container}>
-            <View style={styles.container1}>
+        <View  style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
+            <View  style = {[styles.container1, { backgroundColor: theme.backgroundColor }]}>
 
                 <FlatList 
                     data={settingsList}
@@ -31,7 +33,7 @@ export default function Settings(){
                 <View style={styles.theme}>
 
                     <View>
-                        <Text style={styles.themeText}>
+                        <Text style={[styles.themeText, { color: theme.textColor }]}>
                             Theme
                         </Text>
                     </View>
@@ -40,9 +42,9 @@ export default function Settings(){
 
                         <Switch 
                                 trackColor={{ false: "#767577", true: "#90EE90" }}
-                                thumbColor={isEnabled ? "white" : "#f4f3f4"}
-                                onValueChange={toggleSwitch}
-                                value={isEnabled}
+                                thumbColor={isDarkTheme ? "white" : "#f4f3f4"}
+                                onValueChange={toggleTheme}
+                                value={isDarkTheme}
                         />
                     </View>
 
